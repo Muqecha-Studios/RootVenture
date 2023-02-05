@@ -5,28 +5,54 @@ using TMPro;
 
 public class SubGameController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //public GameObject[] collectable_water;
-    public List<GameObject> collectable_water;
-    public TextMeshProUGUI staminaTxt, waterTxt,potassiumTxt, ironTxt, timeTxt;
-    int stamina = 50;
-    public int water = 5;
-    int potassium = 0;
-    int iron = 0;
+    public static SubGameController instance;
 
-    public float timeRemaining = 60;
-    void Start()
+    public enum ItemType
     {
-        // staminaTxt.GetComponent<TextMeshProUGUI>().text  = stamina.ToString();
-        waterTxt.GetComponent<TextMeshProUGUI>().text  = water.ToString();
-        // potassiumTxt.GetComponent<TextMeshProUGUI>().text  = potassium.ToString();
-        // ironTxt.GetComponent<TextMeshProUGUI>().text  = iron.ToString();
+        None,
+        Water,
+        Iron,
+        Potassium,
     }
 
-    // Update is called once per frame
+    public List<GameObject> collectable_water;
+    public TMP_Text staminaTxt;
+    public TMP_Text timeTxt;
+    
+
+    public float timeRemaining = 60;
+    public float stamina = 50;
+
+
+    public float waterQty = 0f;
+    public float potassiumQty = 0;
+    public float ironQty = 0;
+
+
+    public TMP_Text waterQtyText;
+    public TMP_Text ironQtyText;
+    public TMP_Text potassiumQtyText;
+
+    private void Awake()
+    {
+        if (!instance)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void Start()
+    {
+        
+    }
+
     void Update()
     {
-         if (timeRemaining > 0)
+        if (timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
             int time = (int)timeRemaining;
@@ -34,40 +60,25 @@ public class SubGameController : MonoBehaviour
         }
     }
    
-
-   
-    void collectwater()
+    public void CollectItem(ItemType type, float value)
     {
-        updateScore(1,0,0,0,0);
-    }
-    void collectiron()
-    {
-        updateScore(0,1,0,0,0);
-    }
-    void collectpot()
-    {
-        updateScore(0,0,1,0,0);
-    }
-    void punch()
-    {
-        updateScore(0,0,0,1,0);
-    }
-    void pest()
-    {
-        updateScore(0,0,0,0,1);
-    }
-
-    void updateScore(int wt,int ir, int pt,int punch, int pest)
-    {
-        int s = wt + (10*ir) + (5*pt) - (10*punch) - (20*pest);
-        stamina+=s;
-        water+=wt;
-        iron+=ir;
-        potassium+=pt;
-    
-        // staminaTxt.GetComponent<TextMeshProUGUI>().text  = stamina.ToString();
-        waterTxt.GetComponent<TextMeshProUGUI>().text  = water.ToString();
-        // potassiumTxt.GetComponent<TextMeshProUGUI>().text  = potassium.ToString();
-        // ironTxt.GetComponent<TextMeshProUGUI>().text  = iron.ToString();
+            switch (type)
+            {
+                case ItemType.None: 
+                    return;
+                case ItemType.Water:
+                    waterQty += value;
+                    Debug.Log(waterQty);
+                    waterQtyText.text = waterQty.ToString();
+                    return;
+                case ItemType.Potassium:
+                    potassiumQty += value;
+                    potassiumQtyText.text = potassiumQty.ToString();
+                    return;
+                case ItemType.Iron:
+                    ironQty += value;
+                    ironQtyText.text = ironQty.ToString();
+                    return;
+            }
     }
 }
