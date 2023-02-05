@@ -33,6 +33,8 @@ public class SubGameController : MonoBehaviour
     public TMP_Text ironQtyText;
     public TMP_Text potassiumQtyText;
 
+    public RectTransform gameOverPanel;
+
     private void Awake()
     {
         if (!instance)
@@ -43,6 +45,8 @@ public class SubGameController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        gameOverPanel.gameObject.SetActive(false);
     }
 
     void Start()
@@ -57,6 +61,10 @@ public class SubGameController : MonoBehaviour
             timeRemaining -= Time.deltaTime;
             int time = (int)timeRemaining;
             timeTxt.GetComponent<TextMeshProUGUI>().text  = time.ToString();
+        }
+        else if (timeRemaining <= 0)
+        {
+            GameOver();
         }
     }
    
@@ -80,5 +88,10 @@ public class SubGameController : MonoBehaviour
                     ironQtyText.text = ironQty.ToString();
                     return;
             }
+    }
+
+    public void GameOver()
+    {
+        gameOverPanel.gameObject.SetActive(true);
     }
 }

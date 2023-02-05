@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1593588920723393465}
   - component: {fileID: 1593588920723393462}
   m_Layer: 0
-  m_Name: Colleceble Item
+  m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
