@@ -60,7 +60,7 @@ public class SubGameController : MonoBehaviour
         }
     }
    
-    public void CollectItem(Collider2D collider, ItemType type, float value)
+    public void CollectItem(ItemType type, float value)
     {
             switch (type)
             {
