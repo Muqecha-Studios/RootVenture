@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 345399694}
   - component: {fileID: 345399696}
+  - component: {fileID: 345399697}
   m_Layer: 0
   m_Name: Carrot ae_00000
   m_TagString: Untagged
@@ -84,6 +85,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &345399697
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345399693}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ece7ffc16d4965548beccf4fbba1c90a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &5995137333958402854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101,7 +122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 528336666821076608, guid: 94b79b5d128824b4d816f61f8f5e5fa2, type: 3}
       propertyPath: m_Name
-      value: Default Character Variant
+      value: Default Character
       objectReference: {fileID: 0}
     - target: {fileID: 528336666821076608, guid: 94b79b5d128824b4d816f61f8f5e5fa2, type: 3}
       propertyPath: m_IsActive
@@ -159,6 +180,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 528336666821076615, guid: 94b79b5d128824b4d816f61f8f5e5fa2, type: 3}
+      propertyPath: m_JumpForce
+      value: 650
+      objectReference: {fileID: 0}
+    - target: {fileID: 528336666821076667, guid: 94b79b5d128824b4d816f61f8f5e5fa2, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 345399697}
     - target: {fileID: 528336667194221423, guid: 94b79b5d128824b4d816f61f8f5e5fa2, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.621
@@ -206,23 +235,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64060354, y: 3.2517288}
   m_EdgeRadius: 0
---- !u!95 &757425168416998030
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6081555779015067046}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ae150a9665306dc4db269d5b73484f00, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
