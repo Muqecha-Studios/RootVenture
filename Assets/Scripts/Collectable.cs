@@ -33,7 +33,6 @@ public class Collectable : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("I'm triggering");
         subController.CollectItem(collision, itemType, itemValue);
         gameObject.SetActive(false);
     }

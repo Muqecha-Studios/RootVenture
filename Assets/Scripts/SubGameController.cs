@@ -16,7 +16,8 @@ public class SubGameController : MonoBehaviour
     }
 
     public List<GameObject> collectable_water;
-    public TMP_Text staminaTxt, waterTxt,potassiumTxt, ironTxt, timeTxt;
+    public TMP_Text staminaTxt;
+    public TMP_Text timeTxt;
     
 
     public float timeRemaining = 60;
@@ -61,8 +62,6 @@ public class SubGameController : MonoBehaviour
    
     public void CollectItem(Collider2D collider, ItemType type, float value)
     {
-       
-            Debug.Log("in if statement");
             switch (type)
             {
                 case ItemType.None: 
@@ -81,6 +80,5 @@ public class SubGameController : MonoBehaviour
                     ironQtyText.text = ironQty.ToString();
                     return;
             }
-        
     }
 }
